@@ -29,7 +29,6 @@ try:
     coefficients.set_index(np.array(['coefficients']), inplace=True)
     st.write(coefficients)
     coefficients = coefficients.iloc[0]
-    st.write(datas)
 
     datas = datas[list(x_cols) + list([y_col])]
 
@@ -45,5 +44,5 @@ try:
 
     st.markdown(datas.head(int(table_header)).style.hide(axis='index').to_html(), unsafe_allow_html=True)
 
-except Exception as e:
-    st.write(e)
+except:
+    pass
