@@ -19,7 +19,10 @@ try:
         datas.columns)
 
     st.write('Correlation matrix')
-    st.write(datas.corr().loc[y_col])
+    try:
+        st.write(datas.corr().loc[y_col])
+    except:
+        pass
 
     x = datas[x_cols]
     y = datas[y_col]
