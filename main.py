@@ -38,7 +38,7 @@ try:
 
     datas = datas[list(x_cols) + list([y_col])]
 
-    datas['y_predicted'] = y_p
+    datas[y_col + '_predicted'] = y_p
     cols = st.columns([0.5, 0.5])
     with cols[0]:
         table_header = st.selectbox('Table head', [i for i in range(1, len(datas) + 1)])
