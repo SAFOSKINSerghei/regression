@@ -23,7 +23,9 @@ try:
 
     x = datas[x_cols]
     y = datas[y_col]
-    model = LinearRegression().fit(x, y)
+    lnrg = LinearRegression()
+    model = lnrg.fit(x, y)
+    y_p = lnrg.predict(x)
     coefficients = [x for x in model.coef_]
     coefficients.insert(0, model.intercept_)
     coefficients = pd.DataFrame(coefficients).T
@@ -36,9 +38,7 @@ try:
 
     datas = datas[list(x_cols) + list([y_col])]
 
-    datas['y_predicted'] = coefficients[0]
-    for i in range(1, len(x_cols) + 1):
-        datas['y_predicted'] += datas[datas.columns[i]] * coefficients[i]
+    datas['y_predicted'] = y_p
     cols = st.columns([0.5, 0.5])
     with cols[0]:
         table_header = st.selectbox('Table head', [i for i in range(1, len(datas) + 1)])
