@@ -21,8 +21,8 @@ try:
     st.write('Correlation matrix')
     try:
         st.write(datas.corr().loc[y_col])
-    except:
-        pass
+    except Exception as e:
+        st.write(e)
 
     x = datas[x_cols]
     y = datas[y_col]
