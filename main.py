@@ -9,6 +9,7 @@ st.set_page_config(layout='wide', page_title='Linear regression')
 
 st.markdown('<center><h1>Linear regression</h1></center>', unsafe_allow_html=True)
 datas = file_uploader_create("Select dataset file")
+datas = datas.select_dtypes(include='number')
 try:
 
     x_cols = st.multiselect(
