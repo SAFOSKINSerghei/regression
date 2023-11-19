@@ -20,10 +20,7 @@ try:
         datas.columns)
 
     st.write('Correlation matrix')
-    try:
-        st.write(datas.corr().loc[y_col])
-    except Exception as e:
-        st.write(e)
+    st.write(datas.corr().loc[y_col])
 
     x = datas[x_cols]
     y = datas[y_col]
